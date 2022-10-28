@@ -87,7 +87,7 @@ function wallet2() {
     return response.json();
     })
         .then(function (data) {
-    content += "<img src=" + data.image + " width=200>" + " token Id: " + result + " , listing Id: " + listing1 + "<br>" + "<hr>";
+    content += "<img src=" + data.image + " width=200>" + " token Id: " + result + " , listing ID: " + listing1 + "<br>" + "<hr>";
     $("#lang3").html(content);
     });
     });
@@ -133,7 +133,7 @@ function listNFT() {
     //var content = "";
     var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
     var customERC721 = $("#customERC721").val();
-    var tokenId3 = $("#tokenId2").val();
+    var tokenId3 = $("#tokenId3").val();
     var askPrice = $("#askPrice").val();
     var askPrice1 = askPrice *1000000000000000000;
     var askPrice2 = askPrice1.toString();
