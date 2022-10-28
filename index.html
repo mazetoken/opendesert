@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Open Desert - Multichain NFT Market</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Open Desert - Multichain NFT Market">
+<meta name="web" content="">
+<link rel="icon" type="image/ico" sizes="32x32" href="img/favicon.ico">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js" integrity="sha256-1TLx50r3wQ52OlAm5jSfpTwbN9MJ51NysfLmsXmUPDk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<style>
+body {font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}
+.w3-row img {margin-bottom: -8px}
+body {background-color: black;}
+</style>
+</head>
+<body>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-content" style="max-width: 1200px;">
+
+    <!-- Header -->
+    <header class="w3-container w3-black w3-large w3-padding-24">
+      <h1 class="w3-center w3-xxxlarge">Open Desert</h1>
+      <p class="w3-center w3-black">Multichain NFT Wallet & Market <i>(alpha)</i><br>
+        <img src="img/opendesert1200.png" alt="OpenDesert" width="700"><br><br>
+        Open Desert contract has deterministic address (the same on different blockchains).<br>
+        0x052F9B3e0BE10356d86C264c4890106287D1Eb9b<br>
+        Open Desert is currenty deployed on <a href="https://polygonscan.com/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Polygon</a>,
+        <a href="https://explorer.dogechain.dog/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Dogechain</a>,
+        <a href="https://sonar.cash/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">smartBCH</a>,
+        <a href="https://cronoscan.com/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Cronos</a> and 
+        <a href="https://mainnet.ethwscan.com/address/0x052F9B3e0BE10356d86C264c4890106287D1Eb9b">ETHW</a>.<br>
+        The contract is not audited, but verified ^ and <a href="https://github.com/mazetoken/contracts/opendesert">open-source.</a><br><br>
+        Open Desert has 1% fee implemented when listing is bought (consider this when setting a price).<br><br>
+        You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
+        Reload if not connected or undefined.
+      </p>
+    </header>
+
+    <hr>
+
+    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT Wallet</h1>
+    <p class="w3-center w3-black"> View and send NFTs</p>
+    <br>
+    <div class="w3-row">
+      <div class="w3-center w3-black">   
+        <input id="customERC721" type="text" size="46" placeholder=" contract address"><br>
+        <button onclick="wallet1()" class="button button1">View your NFTs</button>
+        <p><i>Wait a few seconds. Reload if you do not see images</i></p>
+        <p></p>
+        <div id="lang1"></div>
+        <br><br>
+        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="address1" type="text" size="46" placeholder="recipient address"><br>
+        <input id="tokenId1" type="text" size="10" placeholder="token Id"><br>
+        <button onclick="sendERC721()" class="button button1">Send</button>
+        <p><i>Send NFT to somebody</i></p>
+        <div id="lang2"></div>
+        <br>
+      </div>
+    </div>
+
+    <hr>
+
+    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT Market</h1>
+    <p class="w3-center w3-black">You can list for sale any NFTs you own. Do not forget listing ID.<br><br>
+      <i>Featured NFTs:</i><br>
+      RENDERAI: 0x1749c3ED28189a4695CBaEe75816a962020408A0 (Dogechain)<br>
+      RENDERAI: 0x379699089E4408E0DcFf322fe0152f255fADc33C (Polygon)<br>
+      DEADHEADZ: 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5 (Dogechain)<br>
+      REAPERS: 0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2 (smartBCH)<br>
+      .BCH Domains (.BCH): 0x32650517D7D4c54935197ff5F3e575D5fb210A63 (smartBCH)<br>
+      Dogechain Name Service (DNS): 0xCB2Df8B3De2d4d59a7F22E2EB1C080BAafc58C2F (Dogechain)  
+    </p>
+    <br>
+    <div class="w3-row">
+      <div class="w3-center w3-black">
+        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <button onclick="wallet2()" class="button button1">View NFTs for sale</button>
+        <p><i>Wait a few seconds. Reload if you do not see NFTs</i></p>
+        <p></p>
+        <div id="lang3"></div>
+        <br><br>
+        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="tokenId2" type="text" size="10" placeholder="token Id"><br>
+        <button onclick="approveR()" class="button button1">Approve</button><br><br>
+        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <button onclick="approveAll()" class="button button1">Approve all</button>
+        <p><i>Approve before listing for sale</i></p>
+        <div id="lang4"></div>
+        <br>
+        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="tokenId3" type="text" size="10" placeholder="token Id"><br>
+        <input id="askPrice" type="text" size="20" placeholder="price e.g. 10 or 0.05"><br>
+        <button onclick="listNFT()" class="button button1">List NFT for sale</button>
+        <p></p>
+        <div id="lang5"></div>
+        <br>
+        <button onclick="getSaleCounter()" class="button button1">Sale listing counter</button>
+        <p><i>Every network has its own sale counter / listing ID</i></p>
+        <p></p>
+        <div id="lang6"></div>
+        <br>
+        <input id="listId" type="text" size="10" placeholder="listing ID"><br>
+        <button onclick="getListing()" class="button button1">Get listing info</button>
+        <p></p>
+        <div id="lang7"></div>
+        <br>
+        <input id="listId" type="text" size="10" placeholder="listing ID"><br>
+        <button onclick="cancelNFT()" class="button button1">Cancel listing</button>
+        <p></p>
+        <div id="lang8"></div>
+        <br>
+        <input id="listId1" type="text" size="10" placeholder="listing ID"><br>
+        <button onclick="buyNFT()" class="button button1">Buy NFT</button>
+        <p></p>
+        <div id="lang9"></div>
+        <br><br>
+        <!-- <input id="address2" type="text" size="40" placeholder="address"><br>
+        <button onclick="transferV()" class="button button1">Transfer value from the contract</button>
+        <p><i>Contract owner only</i></p>
+        <div id="lang10"></div>
+        <br><br> -->
+      </div>
+    </div>
+    
+    <!-- End Page Content -->
+  </div>
+
+  <!-- Footer / About Section -->
+  <footer class="w3-light-grey w3-padding-24 w3-center">
+    <!-- <h3>About</h3>
+    <br> -->
+    <p><a href="https://t.me/mazetokens"><img src="img/telegram.png" alt="Telegram" width="32"></a> <a href="https://github.com/mazetoken/contracts"><img src="img/github.png" alt="Github" width="32"></a></p>
+    <p><a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  </footer> 
+
+  <script src="functions.js"></script>
+  <script src="ERC721abi.js"></script>
+  <script src="OpenDesertabi.js"></script>
+
+</body>
+</html>
