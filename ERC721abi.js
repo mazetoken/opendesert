@@ -1,27 +1,6 @@
 var ERC721abi = [
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_uri",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_maxSupply",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "initialRoyaltiesReceiver",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_royaltiesPercentage",
-				"type": "uint256"
-			}
-		],
+		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -159,17 +138,12 @@ var ERC721abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
-				"name": "number",
+				"name": "tokenId",
 				"type": "uint256"
 			}
 		],
-		"name": "batchMint",
+		"name": "burn",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -212,19 +186,6 @@ var ERC721abi = [
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "maxSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -283,66 +244,6 @@ var ERC721abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "royaltiesPercentage",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "royaltiesReceiver",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_salePrice",
-				"type": "uint256"
-			}
-		],
-		"name": "royaltyInfo",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "token",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "royaltyAmount",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -371,16 +272,15 @@ var ERC721abi = [
 				"internalType": "address",
 				"name": "to",
 				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "uri",
+				"type": "string"
 			}
 		],
 		"name": "safeMint",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -449,45 +349,6 @@ var ERC721abi = [
 			}
 		],
 		"name": "setApprovalForAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_uri",
-				"type": "string"
-			}
-		],
-		"name": "setNewURI",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_newRoyaltiesPercentage",
-				"type": "uint256"
-			}
-		],
-		"name": "setRoyaltiesPercentage",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newRoyaltiesReceiver",
-				"type": "address"
-			}
-		],
-		"name": "setRoyaltiesReceiver",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -633,19 +494,6 @@ var ERC721abi = [
 		"name": "transferOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "uri",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	}
 ];

@@ -26,7 +26,10 @@ body {background-color: black;}
       <h1 class="w3-center w3-xxxlarge">Open Desert</h1>
       <p class="w3-center w3-black">Multichain NFT Wallet & Market <i>(alpha)</i><br>
         <img src="img/opendesert1200.png" alt="OpenDesert" style="width:100%">
-        <br><br>
+      </p>
+    </header>
+
+      <p class="w3-center w3-black">
         Open Desert contract has deterministic address (the same on different blockchains).<br>
         0x052F9B3e0BE10356d86C264c4890106287D1Eb9b<br>
         Open Desert is currenty deployed on <a href="https://polygonscan.com/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Polygon</a>,
@@ -39,7 +42,6 @@ body {background-color: black;}
         You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
         Reload if not connected or undefined.
       </p>
-    </header>
 
     <hr>
 
@@ -69,10 +71,10 @@ body {background-color: black;}
     <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT Market</h1>
     <p class="w3-center w3-black">You can list for sale any NFTs you own. Do not forget listing ID.<br><br>
       <i>Featured NFTs:</i><br>
-      RENDERAI: 0x1749c3ED28189a4695CBaEe75816a962020408A0 (Dogechain)<br>
-      RENDERAI: 0x379699089E4408E0DcFf322fe0152f255fADc33C (Polygon)<br>
-      DEADHEADZ: 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5 (Dogechain)<br>
-      REAPERS: 0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2 (smartBCH)<br>  
+      RENDERAI (Dogechain): 0x1749c3ED28189a4695CBaEe75816a962020408A0<br>
+      RENDERAI (Polygon): 0x379699089E4408E0DcFf322fe0152f255fADc33C<br>
+      DEADHEADZ (Dogechain): 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5<br>
+      REAPERS (smartBCH): 0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2<br>  
     </p>
     <br>
     <div class="w3-row">
@@ -83,15 +85,15 @@ body {background-color: black;}
         <p></p>
         <div id="lang3"></div>
         <br><br>
-        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="customERC721" type="text" size="40" placeholder="contract address"><br>
         <input id="tokenId2" type="text" size="10" placeholder="token Id"><br>
         <button onclick="approveR()" class="button button1">Approve</button><br><br>
-        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="customERC721" type="text" size="40" placeholder="contract address"><br>
         <button onclick="approveAll()" class="button button1">Approve all</button>
         <p><i>Approve before listing for sale</i></p>
         <div id="lang4"></div>
         <br>
-        <input id="customERC721" type="text" size="46" placeholder="contract address"><br>
+        <input id="customERC721" type="text" size="40" placeholder="contract address"><br>
         <input id="tokenId3" type="text" size="10" placeholder="token Id"><br>
         <input id="askPrice" type="text" size="20" placeholder="price e.g. 10 or 0.05"><br>
         <button onclick="listNFT()" class="button button1">List NFT for sale</button>
