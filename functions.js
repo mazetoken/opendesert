@@ -62,39 +62,41 @@ function sendERC721() {
 };
 
 // OpenDesert NFT Market
-function wallet2() {
-    var custom2ERC721 = $("#custom2ERC721").val();
-    var contractERC721 = new web3.eth.Contract(ERC721abi, custom2ERC721); // Custom NFT
-    var content = "";
-    var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
-    contractOpenDesert.methods.saleCounter().call({ from: zombieMaster })
-        .then(function (result3) {
-            console.log(result3);
-        var listing1 = result3 - 1;
-    contractERC721.methods.balanceOf("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b").call()
-        .then(function (result) {
-    balance = result;
-    for(var i = 0; i < balance; i++) {
-    contractERC721.methods.tokenOfOwnerByIndex("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", i).call()
-        .then(function (result) {
-    //contractERC721.methods.tokenURI(Number(result)).call()
-    contractERC721.methods.tokenURI(result).call()
-        .then(function (result1) {
-    var url = result1;    
-    fetch(url)
-        .then(function (response) {
-    return response.json();
-    })
-        .then(function (data) {
-    content += "<img src=" + data.image + " width=200>" + " token Id: " + result + " , listing ID: " + listing1 + "<br>" + "<hr>";
-    $("#lang3").html(content);
-    });
-    });
-    });
-    };
-    });
-    });;
-};
+//function wallet2() {
+    //var custom2ERC721 = $("#custom2ERC721").val();
+    //var contractERC721 = new web3.eth.Contract(ERC721abi, custom2ERC721); // Custom NFT
+    //var content = "";
+    ///var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
+    ///contractOpenDesert.methods.saleCounter().call({ from: zombieMaster })
+        ///.then(function (result3) {
+            ///console.log(result3);
+        ///var listing1 = result3 - 1;
+    //contractERC721.methods.balanceOf("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b").call()
+        //.then(function (result) {
+    //balance = result;
+    //for(var i = 0; i < balance; i++) {
+    //contractERC721.methods.tokenOfOwnerByIndex("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", i).call()
+        //.then(function (result) {
+    ///contractERC721.methods.tokenURI(Number(result)).call()
+    //contractERC721.methods.tokenURI(result).call()
+        //.then(function (result1) {
+    //var url = result1;    
+    //fetch(url)
+        //.then(function (response) {
+    //return response.json();
+    //})
+        //.then(function (data) {
+    ///content += "<img src=" + data.image + " width=200>" + " token Id: " + result + " , listing ID: " + listing1;
+    ///content += "<img src=" + data.image + " width=200>" + " token Id: " + result + "<br>" + "<hr>";
+    //content += "<img src=" + data.image + " width=200>" + " token Id: " + result;
+    //$("#lang3").html(content);
+    //});
+    //});
+    //});
+    //};
+    //});
+    ///});;
+//};
 
 function approveR() {
     var custom3ERC721 = $("#custom3ERC721").val();
@@ -152,29 +154,6 @@ function listNFT() {
     $("#lang5").html(content);
         });;
         });;
-  };
-
-function getSaleCounter() {
-    var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
-    contractOpenDesert.methods.saleCounter().call({ from: zombieMaster })
-        .then(function (result) {
-            console.log(result);
-    var content = "Listind ID: ";
-    content += result - 1;
-    $("#lang6").html(content);
-        });;
-};
-
-function getListing() {
-    var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
-    var listId = $("#listId").val();
-    contractOpenDesert.methods.getListing(listId).call({ from: zombieMaster })
-        .then(function (result) {
-            console.log(result);
-    var content = "";
-    content += "contract: " + result[0] + "<br>" + "token Id: " + result[1] + "<br>" + "listing creator: " + result[2] + "<br>" + "price: " + result [3] / 1000000000000000000;
-    $("#lang7").html(content);
-        });;
 };
 
 function cancelNFT() {
@@ -192,17 +171,71 @@ function cancelNFT() {
         });;
 };
 
-function buyNFT() {
+function getSaleCounter() {
+    var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
+    contractOpenDesert.methods.saleCounter().call({ from: zombieMaster })
+        .then(function (result) {
+            console.log(result);
+    var content = "Listind ID: ";
+    content += result - 1;
+    $("#lang6").html(content);
+        });;
+};
+
+function getListingInfo() {
     var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
     var listId1 = $("#listId1").val();
-    var content = "Sending transaction from: ";
-    content += zombieMaster;
-    $("#lang9").html(content);
     contractOpenDesert.methods.getListing(listId1).call({ from: zombieMaster })
         .then(function (result) {
             console.log(result);
+
+        var resulturi = result[0];
+        var contractERC721 = new web3.eth.Contract(ERC721abi, resulturi); // Custom NFT
+
+        contractERC721.methods.name().call()
+            .then(function (result0) {
+                console.log(result0);
+            var name = result0;
+            //});
+
+        contractERC721.methods.balanceOf("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b").call()
+            .then(function (result1) {
+        balance = result1;
+        for(var i = 0; i < balance; i++) {
+        contractERC721.methods.tokenOfOwnerByIndex("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", i).call()
+        .then(function (result1) {
+        var result1 = result[1];
+        contractERC721.methods.tokenURI(result1).call()
+            .then(function (result2) {
+        var url = result2;    
+        fetch(url)
+            .then(function (response) {
+        return response.json();
+        })
+            .then(function (data) {
+            
+    var content = "";
+    content += "contract: " + result[0] + "<br>" + name + "<br>" + "token Id: " + result[1] + "<br>" + "<img src=" + data.image + " width=512>" + "<br>" + "<br>" + "listing creator: " + result[2] + "<br>" + "price: " + result [3] / 1000000000000000000;
+    $("#lang7").html(content);       
+        });;
+        });;
+        });;
+        }});;
+        });
+        });;
+};
+
+function buyNFT() {
+    var contractOpenDesert = new web3.eth.Contract(OpenDesertabi, "0x052F9B3e0BE10356d86C264c4890106287D1Eb9b");
+    var listId2 = $("#listId2").val();
+    var content = "Sending transaction from: ";
+    content += zombieMaster;
+    $("#lang9").html(content);
+    contractOpenDesert.methods.getListing(listId2).call({ from: zombieMaster })
+        .then(function (result) {
+            console.log(result);
             var cost = result[3];
-    contractOpenDesert.methods.buyListing(listId1).send({ from: zombieMaster, value: cost })
+    contractOpenDesert.methods.buyListing(listId2).send({ from: zombieMaster, value: cost })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";

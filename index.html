@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Open Desert - Multichain NFT Market</title>
+<title>Open Desert - Multichain NFT OTC Market</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Open Desert - Multichain NFT Market">
+<meta name="description" content="Open Desert - Multichain NFT OTC Market">
 <meta name="web" content="">
 <link rel="icon" type="image/ico" sizes="32x32" href="img/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,7 +24,7 @@ body {background-color: black;}
     <!-- Header -->
     <header class="w3-container w3-black w3-large w3-padding-24">
       <h1 class="w3-center w3-xxxlarge">Open Desert</h1>
-      <p class="w3-center w3-black">Multichain NFT Wallet & Market <i>(alpha)</i><br>
+      <p class="w3-center w3-black">Multichain NFT Wallet & OTC Market <i>(alpha)</i><br>
         <img src="img/opendesert1200.png" alt="OpenDesert" style="width:100%">
       </p>
     </header>
@@ -54,7 +54,7 @@ body {background-color: black;}
         <p><i>Wait a few seconds. Reload if you do not see images</i></p>
         <p></p>
         <div id="lang1"></div>
-        <br><br>
+        <br>
         <input id="custom1ERC721" type="text" size="45" placeholder="contract address"><br>
         <input id="address1" type="text" size="45" placeholder="recipient address"><br>
         <input id="tokenId1" type="text" size="10" placeholder="token Id"><br>
@@ -67,12 +67,15 @@ body {background-color: black;}
 
     <hr>
 
-    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT Market</h1>
-    <p class="w3-center w3-black">You can list for sale any NFTs you own. Do not forget listing ID.<br><br>
+    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT OTC Market</h1>
+    <p class="w3-center w3-black">You can list for sale any NFTs you own. Do not forget listing ID.<br>Share listing ID with friends or on social media etc.<br>
+      The price is in WDOGE when NFT is listed for sale on Dogechain, in BCH when on smartBCH, in MATIC when on Polygon, in ETHW when on ETHW and in CRO when on Cronos.<br><br>
       <i>Featured NFTs:</i><br>
       RENDERAI (Dogechain): 0x1749c3ED28189a4695CBaEe75816a962020408A0<br>
       RENDERAI (Polygon): 0x379699089E4408E0DcFf322fe0152f255fADc33C<br>
       DEADHEADZ (Dogechain): 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5<br>
+      .doge domains (Dogechain): 0x0aF878360B48b5f51F4e919f3cC1EC08B78627ad<br>
+      .bch domains (smartBCH): 0x32650517D7D4c54935197ff5F3e575D5fb210A63<br>
       REAPERS (smartBCH): 0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2<br>
       Mutants (Dogechain): 0x9b3787Ea33c1aE52DCE0BEd56502e1523cf5f89a<br>
       Cackles (smartBCH): 0xbad64f85727D27e67631BC1a5B6e339cd1830c4a<br>  
@@ -80,12 +83,12 @@ body {background-color: black;}
     <br>
     <div class="w3-row">
       <div class="w3-center w3-black">
-        <input id="custom2ERC721" type="text" size="45" placeholder="contract address"><br>
+        <!-- <input id="custom2ERC721" type="text" size="45" placeholder="contract address"><br>
         <button onclick="wallet2()" class="button button1">View NFTs for sale</button>
         <p><i>Wait a few seconds. Reload if you do not see images</i></p>
         <p></p>
         <div id="lang3"></div>
-        <br><br>
+        <br><br> -->
         <input id="custom3ERC721" type="text" size="45" placeholder="contract address"><br>
         <input id="tokenId2" type="text" size="10" placeholder="token Id"><br>
         <button onclick="approveR()" class="button button1">Approve</button><br><br>
@@ -101,22 +104,22 @@ body {background-color: black;}
         <p></p>
         <div id="lang5"></div>
         <br>
-        <button onclick="getSaleCounter()" class="button button1">Sale listing counter</button>
-        <p><i>Every network has its own sale counter / listing ID</i></p>
-        <p></p>
-        <div id="lang6"></div>
-        <br>
-        <input id="listId" type="text" size="10" placeholder="listing ID"><br>
-        <button onclick="getListing()" class="button button1">Get listing info</button>
-        <p></p>
-        <div id="lang7"></div>
-        <br>
         <input id="listId" type="text" size="10" placeholder="listing ID"><br>
         <button onclick="cancelNFT()" class="button button1">Cancel listing</button>
         <p></p>
         <div id="lang8"></div>
         <br>
+        <button onclick="getSaleCounter()" class="button button1">Listing counter</button>
+        <p><i>Each network has its own counter / listing IDs</i></p>
+        <p></p>
+        <div id="lang6"></div>
+        <br>
         <input id="listId1" type="text" size="10" placeholder="listing ID"><br>
+        <button onclick="getListingInfo()" class="button button1">Listing info</button>
+        <p>Get listing info to see listing details</p>
+        <div id="lang7"></div>
+        <br>
+        <input id="listId2" type="text" size="10" placeholder="listing ID"><br>
         <button onclick="buyNFT()" class="button button1">Buy NFT</button>
         <p></p>
         <div id="lang9"></div>
