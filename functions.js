@@ -149,7 +149,7 @@ function listNFT() {
         .then(function (result) {
             console.log(result);
     var result1 = result - 1;
-    var content = "<br>" + "Listind ID: " + result1 + "<br>" + "Write it down. Do not forget it!";
+    var content = "<br>" + "Listing ID: " + result1 + "<br>" + "Write it down. Do not forget it!";
     //content += result1 - 1;
     $("#lang5").html(content);
         });;
@@ -176,7 +176,7 @@ function getSaleCounter() {
     contractOpenDesert.methods.saleCounter().call({ from: zombieMaster })
         .then(function (result) {
             console.log(result);
-    var content = "Listind ID: ";
+    var content = "Listing ID: ";
     content += result - 1;
     $("#lang6").html(content);
         });;
