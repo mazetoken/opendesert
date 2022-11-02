@@ -215,7 +215,7 @@ function getListingInfo() {
             .then(function (data) {
             
     var content = "";
-    content += "contract: " + result[0] + "<br>" + name + "<br>" + "token Id: " + result[1] + "<br>" + "<img src=" + data.image + " width=512>" + "<br>" + "<br>" + "listing creator: " + result[2] + "<br>" + "price: " + result [3] / 1000000000000000000;
+    content += "contract: " + result[0] + "<br>" + name + "<br>" + "token Id: " + result[1] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[2] + "<br>" + "price: " + result [3] / 1000000000000000000;
     $("#lang7").html(content);       
         });;
         });;
