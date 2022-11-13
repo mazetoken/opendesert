@@ -72,7 +72,7 @@ function approveR() {
     var content = "Approving transaction from (reload if undefined): ";
     content += zombieMaster;
     $("#lang4").html(content);
-    contractERC721.methods.approve("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", tokenId2).send({ from: zombieMaster })
+    contractERC721.methods.approve("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", tokenId2).send({ from: zombieMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
@@ -87,7 +87,7 @@ function approveAll() {
     var content = "Approving transaction from (reload if undefined): ";
     content += zombieMaster;
     $("#lang4").html(content);
-    contractERC721.methods.setApprovalForAll("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", "approved").send({ from: zombieMaster })
+    contractERC721.methods.setApprovalForAll("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", "approved").send({ from: zombieMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
@@ -106,7 +106,7 @@ function listNFT() {
     var content = "Sending transaction from: ";
     content += zombieMaster;
     $("#lang5").html(content);
-    contractOpenDesert.methods.list(custom5ERC721, tokenId3, askPrice2).send({ from: zombieMaster })
+    contractOpenDesert.methods.list(custom5ERC721, tokenId3, askPrice2).send({ from: zombieMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
@@ -129,7 +129,7 @@ function cancelNFT() {
     var content = "Sending transaction from: ";
     content += zombieMaster;
     $("#lang8").html(content);
-    contractOpenDesert.methods.cancelListing(listId).send({ from: zombieMaster })
+    contractOpenDesert.methods.cancelListing(listId).send({ from: zombieMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
@@ -204,7 +204,7 @@ function buyNFT() {
         .then(function (result) {
             console.log(result);
             var cost = result[3];
-    contractOpenDesert.methods.buyListing(listId2).send({ from: zombieMaster, value: cost })
+    contractOpenDesert.methods.buyListing(listId2).send({ from: zombieMaster, value: cost, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
