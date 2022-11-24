@@ -65,7 +65,7 @@ document.getElementById('approveR').onclick = async () => {
     var custom3ERC721 = $("#custom3ERC721").val();
     var contractERC721 = new web3.eth.Contract(ERC721abi, custom3ERC721); // Custom NFT
     var tokenId2 = $("#tokenId2").val();
-    var content = "Approving transaction from (reload if undefined): ";
+    var content = "Approving transaction from: ";
     content += account;
     $("#lang4").html(content);
     contractERC721.methods.approve("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", tokenId2).send({ from: account })
@@ -80,7 +80,7 @@ document.getElementById('approveR').onclick = async () => {
 document.getElementById('approveAll').onclick = async () => {
     var custom4ERC721 = $("#custom4ERC721").val();
     var contractERC721 = new web3.eth.Contract(ERC721abi, custom4ERC721); // Custom NFT
-    var content = "Approving transaction from (reload if undefined): ";
+    var content = "Approving transaction from: ";
     content += account;
     $("#lang4").html(content);
     contractERC721.methods.setApprovalForAll("0x052F9B3e0BE10356d86C264c4890106287D1Eb9b", "approved").send({ from: account })
