@@ -1,4 +1,4 @@
-var ERC721abi = [
+const ERC721abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",

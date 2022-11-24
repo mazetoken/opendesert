@@ -1,4 +1,4 @@
-var OpenDesertabi = [
+const OpenDesertabi = [
 	{
 		"inputs": [],
 		"name": "ListingNotFound",
