@@ -1,4 +1,4 @@
-const OpenDesertabi = [
+const OpenDesertV2abi = [
 	{
 		"inputs": [],
 		"name": "ListingNotFound",
@@ -21,6 +21,11 @@ const OpenDesertabi = [
 			{
 				"components": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
 						"internalType": "address",
 						"name": "tokenContract",
 						"type": "address"
@@ -37,12 +42,12 @@ const OpenDesertabi = [
 					},
 					{
 						"internalType": "uint256",
-						"name": "askPrice",
+						"name": "salePrice",
 						"type": "uint256"
 					}
 				],
 				"indexed": false,
-				"internalType": "struct OpenDesert.Listing",
+				"internalType": "struct OpenDesertV2.Listing",
 				"name": "listing",
 				"type": "tuple"
 			}
@@ -56,6 +61,11 @@ const OpenDesertabi = [
 			{
 				"components": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
 						"internalType": "address",
 						"name": "tokenContract",
 						"type": "address"
@@ -72,12 +82,12 @@ const OpenDesertabi = [
 					},
 					{
 						"internalType": "uint256",
-						"name": "askPrice",
+						"name": "salePrice",
 						"type": "uint256"
 					}
 				],
 				"indexed": false,
-				"internalType": "struct OpenDesert.Listing",
+				"internalType": "struct OpenDesertV2.Listing",
 				"name": "listing",
 				"type": "tuple"
 			}
@@ -91,6 +101,11 @@ const OpenDesertabi = [
 			{
 				"components": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
 						"internalType": "address",
 						"name": "tokenContract",
 						"type": "address"
@@ -107,12 +122,12 @@ const OpenDesertabi = [
 					},
 					{
 						"internalType": "uint256",
-						"name": "askPrice",
+						"name": "salePrice",
 						"type": "uint256"
 					}
 				],
 				"indexed": false,
-				"internalType": "struct OpenDesert.Listing",
+				"internalType": "struct OpenDesertV2.Listing",
 				"name": "listing",
 				"type": "tuple"
 			}
@@ -137,6 +152,25 @@ const OpenDesertabi = [
 			}
 		],
 		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "RoyaltiesPaid",
 		"type": "event"
 	},
 	{
@@ -179,7 +213,7 @@ const OpenDesertabi = [
 			},
 			{
 				"internalType": "uint256",
-				"name": "askPrice",
+				"name": "salePrice",
 				"type": "uint256"
 			}
 		],
@@ -275,10 +309,6 @@ const OpenDesertabi = [
 		"type": "function"
 	},
 	{
-		"stateMutability": "payable",
-		"type": "receive"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint16",
@@ -288,6 +318,10 @@ const OpenDesertabi = [
 		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	},
 	{
 		"inputs": [],
@@ -313,6 +347,11 @@ const OpenDesertabi = [
 		"name": "getListing",
 		"outputs": [
 			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
 				"internalType": "address",
 				"name": "tokenContract",
 				"type": "address"
@@ -329,7 +368,7 @@ const OpenDesertabi = [
 			},
 			{
 				"internalType": "uint256",
-				"name": "askPrice",
+				"name": "salePrice",
 				"type": "uint256"
 			}
 		],

@@ -33,14 +33,14 @@ body {background-color: black;}
 
       <p class="w3-center w3-black">
         Open Desert contract (verified) has deterministic address (the same on different blockchains):<br><br>
-        0x052F9B3e0BE10356d86C264c4890106287D1Eb9b<br><br>
-        Open Desert is currenty deployed on <a href="https://polygonscan.com/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Polygon</a>,
-        <a href="https://explorer.dogechain.dog/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Dogechain</a>,
-        <a href="https://sonar.cash/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">smartBCH</a>,
-        <a href="https://cronoscan.com/address/0x052f9b3e0be10356d86c264c4890106287d1eb9b">Cronos</a>, 
-        <a href="https://mainnet.ethwscan.com/address/0x052F9B3e0BE10356d86C264c4890106287D1Eb9b">EthereumPoW</a> and<br>
-        <a href="https://bscscan.com/address/0x052F9B3e0BE10356d86C264c4890106287D1Eb9b">BNB Smart Chain</a>.<br><br>
-        Open Desert has 1% fee implemented when listing is bought (consider this when setting a price).<br><br>
+        0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53<br><br>
+        Open Desert is currenty deployed on <a href="https://polygonscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Polygon</a>,
+        <a href="https://explorer.dogechain.dog/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Dogechain</a>,
+        <a href="https://sonar.cash/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">smartBCH</a> and
+        <a href="https://mainnet.ethwscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">EthereumPoW</a>.<br><br>
+        <!-- <a href="https://cronoscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Cronos</a> and<br>
+        <a href="https://bscscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">BNB Smart Chain</a>.<br><br> -->
+        Open Desert has 1.5% fee implemented when listing is bought (consider this when setting a price).<br><br>
         You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
         You may need to edit suggested gas limit in the wallet.<br><br>
         <button id="connect" class="button button1">Connect wallet</button><br><br>
@@ -82,17 +82,11 @@ body {background-color: black;}
 
     <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT OTC Market</h1>
     <p class="w3-center w3-black">You can list for sale any NFTs you own.<br>Open Desert is not intended for large collections, but rather for rare collectibles.<br>Do not forget listing ID.<br>Share listing ID with friends or on social media.<br><br>
-      <!-- The price is in WDOGE when NFT is listed for sale on Dogechain, in BCH when on smartBCH, in MATIC when on Polygon, in CRO when on Cronos, in ETHW when on EthereumPow and in BNB when on BNB Smart Chain.<br><br> -->
       <i>Featured NFTs:</i><br>
       <a href="https://renderai.art">RENDERAI</a> (Dogechain): 0x1749c3ED28189a4695CBaEe75816a962020408A0<br>
       <a href="https://renderai.art">RENDERAI</a> (Polygon): 0x379699089E4408E0DcFf322fe0152f255fADc33C<br>
       <a href="https://headz.netlify.app">DEADHEADZ</a> (Dogechain): 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5<br>
       <a href="https://opendesert.art/legends">LEGENDS</a> (Polygon, Dogechain, smartBCH, EthereumPoW): 0x7D96a78c04337914379ffB2094a48d8E809234eC<br>
-      <!-- <a href="https://app.dogedomains.wf">.doge domains</a> (Dogechain): 0x0aF878360B48b5f51F4e919f3cC1EC08B78627ad<br>
-      <a href="https://app.bch.domains">.bch domains</a> (smartBCH): 0x32650517D7D4c54935197ff5F3e575D5fb210A63<br>
-      <a href="https://reapers.cash">REAPERS</a> (smartBCH): 0x48973dbAC0d46B939CD12A7250eFBA965e8a8cf2<br>
-      <a href="https://mutants.one">Mutants</a> (Dogechain): 0x9b3787Ea33c1aE52DCE0BEd56502e1523cf5f89a<br>
-      <a href="https://cackles.cash">Cackles</a> (smartBCH): 0xbad64f85727D27e67631BC1a5B6e339cd1830c4a<br> -->  
     </p>
     <br>
     <div class="w3-row">
@@ -102,7 +96,7 @@ body {background-color: black;}
         <button id="approveR" class="button button1">Approve</button><br><br>
         <input id="custom4ERC721" type="text" size="46" placeholder="contract address"><br>
         <button id="approveAll" class="button button1">Approve all</button>
-        <p><i>Approve before listing for sale</i></p>
+        <p><i>Approve before listing for sale. Wait for confirmation.</i></p>
         <div id="lang4"></div>
         <br>
         <input id="custom5ERC721" type="text" size="45" placeholder="contract address"><br>
@@ -129,15 +123,19 @@ body {background-color: black;}
         </p>
         <div id="lang8"></div>
         <br>
+        <button id="getListingsInfo" class="button button1">Listings info</button>
+        <p>Get all listings info to see listings details.<br>Wait a few seconds.</p>
+        <div id="lang9"></div>
+        <br>
         <input id="listId2" type="text" size="10" placeholder="listing ID"><br>
         <button id="buyNFT" class="button button1">Buy NFT</button>
-        <p><i>The price is in WDOGE when NFT is listed for sale on Dogechain, in BCH when on smartBCH, in MATIC when on Polygon, in CRO when on Cronos, in ETHW when on EthereumPow and in BNB when on BNB Smart Chain.</i></p>
-        <div id="lang9"></div>
+        <p><i>The price is in WDOGE when NFT is listed for sale on Dogechain, in BCH when on smartBCH, in MATIC when on Polygon and in ETHW when on EthereumPow.</i></p>
+        <div id="lang10"></div>
         <!-- <br>
         <input id="address2" type="text" size="45" placeholder="address"><br>
         <button id="transferV" class="button button1">Transfer value from the contract</button>
         <p><i>Contract owner only</i></p>
-        <div id="lang10"></div> -->
+        <div id="lang11"></div> -->
         <br>
       </div>
     </div>
@@ -148,8 +146,6 @@ body {background-color: black;}
   <br>
 
   <footer class="w3-light-grey w3-padding-16 w3-center">
-    <!-- <h3>About</h3>
-    <br> -->
     <p><a href="https://t.me/mazetokens"><img src="img/telegram.png" alt="Telegram" width="32"></a> <a href="https://github.com/mazetoken/contracts/tree/main/OpenDesert"><img src="img/github.png" alt="Github" width="32"></a></p>
     <p>Donate:<br>BTC: 37Mf1nZGTb4LeMihP1aDYMKXSUX7Gp1nPG<br>BCH: qq8h3lrxs6cre7vhx3te6pftv8h0v3d5lgt3w66eac<br>
       LTC: MTTSStT1C8X346ehBhNYTBuRa4MvWzR4so<br>DOGE: D8RFC5LR6B7tyzJZxm3oUHLLHEkoqYR14d<br>
@@ -158,8 +154,8 @@ body {background-color: black;}
   </footer> 
 
   <script src="functions.js"></script>
-  <script src="ERC721abi.js"></script>
-  <script src="OpenDesertabi.js"></script>
+  <script src="OpenDesertV2abi.js"></script>
+  <script src="NFTRoyaltyAbi.js"></script>
 
 </body>
 </html>
