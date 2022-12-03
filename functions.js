@@ -1,7 +1,7 @@
 //Connect
 var account = null;
 var contract = null;
-const ADDRESS1 = "0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53"; // OpenDesertV2
+const ADDRESS1 = "0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f"; // OpenDesertV2
 
 document.getElementById('connect').onclick = async () => {
 if (window.ethereum) {
@@ -18,7 +18,7 @@ document.getElementById('wallet1').onclick = async () => {
     var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, customERC721); // Custom NFT
     var content = "";
     contractERC721.methods.balanceOf(account).call({ from: account })
-      .then(function (result) {
+        .then(function (result) {
     balance = result;
     for(var i = 0; i < balance; i++) {
     contractERC721.methods.tokenOfOwnerByIndex(account, i).call({ from: account })
@@ -64,7 +64,7 @@ document.getElementById('approveR').onclick = async () => {
     var content = "Approving transaction from: ";
     content += account;
     $("#lang4").html(content);
-    contractERC721.methods.approve("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53", tokenId2).send({ from: account })
+    contractERC721.methods.approve("0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f", tokenId2).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
@@ -79,7 +79,7 @@ document.getElementById('approveAll').onclick = async () => {
     var content = "Approving transaction from: ";
     content += account;
     $("#lang4").html(content);
-    contractERC721.methods.setApprovalForAll("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53", "approved").send({ from: account })
+    contractERC721.methods.setApprovalForAll("0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f", "approved").send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
@@ -132,7 +132,7 @@ document.getElementById('getSaleCounter').onclick = async () => {
     contract1.methods.saleCounter().call({ from: account })
         .then(function (result) {
             console.log(result);
-    var content = "Listing ID: ";
+    var content = "Total number of listings (including bought or canceled): ";
     content += result - 1;
     $("#lang7").html(content);
         });;
@@ -143,82 +143,55 @@ document.getElementById('getListingInfo').onclick = async () => {
     contract1.methods.getListing(listId1).call({ from: account })
         .then(function (result) {
             console.log(result);
-
-        var resulturi = result[1];
-        var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, resulturi); // Custom NFT
-
-        contractERC721.methods.name().call()
-            .then(function (result0) {
-                console.log(result0);
-            var name = result0;
-
-        contractERC721.methods.balanceOf("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53").call()
-            .then(function (result1) {
-        balance = result1;
-        for(var i = 0; i < balance; i++) {
-        contractERC721.methods.tokenOfOwnerByIndex("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53", i).call()
-        .then(function (result1) {
-        var result1 = result[2];
-        contractERC721.methods.tokenURI(result1).call()
-            .then(function (result2) {
-        var url = result2;    
-        fetch(url)
-            .then(function (response) {
-        return response.json();
+    var tokenContract = result[1];
+    var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, tokenContract); // Custom NFT
+    contractERC721.methods.name().call()
+        .then(function (result0) {
+            console.log(result0);
+        var name = result0;
+    contractERC721.methods.tokenURI(result[2]).call()
+        .then(function (result2) {
+    var url = result2;    
+    fetch(url)
+        .then(function (response) {
+            return response.json();
         })
-            .then(function (data) {
-            
+        .then(function (data) {       
     var content = "";
-    content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000 + "<hr>";
+    content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000;
     $("#lang8").html(content);       
         });;
         });;
         });;
-        }});;
-        });
         });;
 }
 
 document.getElementById('getListingsInfo').onclick = async () => {
     var content = "";
     for(x=1; x < 30; x++) {
-    //var listId1 = $("#listId1").val();
     contract1.methods.getListing(x).call({ from: account })
         .then(function (result) {
             console.log(result);
-
-        var resulturi = result[1];
-        var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, resulturi); // Custom NFT
-
-        contractERC721.methods.name().call()
-            .then(function (result0) {
-                console.log(result0);
-            var name = result0;
-
-        contractERC721.methods.balanceOf("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53").call()
-            .then(function (result1) {
-        balance = result1;
-        for(var i = 0; i < balance; i++) {
-        contractERC721.methods.tokenOfOwnerByIndex("0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53", i).call()
-        .then(function (result1) {
-        var result1 = result[2];
-        contractERC721.methods.tokenURI(result1).call()
-            .then(function (result2) {
-        var url = result2;    
-        fetch(url)
-            .then(function (response) {
-        return response.json();
+    var tokenContract = result[1];
+    var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, tokenContract); // Custom NFT
+    contractERC721.methods.name().call()
+        .then(function (result0) {
+            console.log(result0);
+        var name = result0;
+    contractERC721.methods.tokenURI(result[2]).call()
+        .then(function (result2) {
+            console.log(result2);
+    var url = result2;    
+    fetch(url)
+        .then(function (response) {
+            return response.json();
         })
-            .then(function (data) {
-            
-    //var content = "";
-    content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000 + "<br>";
+        .then(function (data) {
+    content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000;
     $("#lang9").html(content);       
         });;
         });;
         });;
-        }});;
-        });
         });;
     };
 }
@@ -232,8 +205,8 @@ document.getElementById('buyNFT').onclick = async () => {
         .then(function (result) {
             console.log(result);
             var cost = result[4];
-    contract1.methods.buyListing(listId2).send({ from: account, value: cost })
-        .then(function (receipt) {
+    contract1.methods.buyListing(listId2).send({ from: account, value: cost })    
+            .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction id: ";
     content += JSON.stringify(receipt.transactionHash);
@@ -242,18 +215,18 @@ document.getElementById('buyNFT').onclick = async () => {
     });;
 }
 
-//document.getElementById('transferV').onclick = async () => {
-    //var address2 = $("#address2").val();
-    //var content = "Sending transaction from: ";
-    //content += account;
-    //$("#lang11").html(content);
-    //contract1.methods.transferValue(address2).send({ from: account })
-        //.then(function (receipt) {
-            //console.log(receipt);
-    //var content = "Transaction id: ";
-    //content += JSON.stringify(receipt.transactionHash);
-    //$("#lang11").html(content);
-        //});;
-//}
+document.getElementById('transferV').onclick = async () => {
+    var address2 = $("#address2").val();
+    var content = "Sending transaction from: ";
+    content += account;
+    $("#lang11").html(content);
+    contract1.methods.transferValue(address2).send({ from: account })
+        .then(function (receipt) {
+            console.log(receipt);
+    var content = "Transaction id: ";
+    content += JSON.stringify(receipt.transactionHash);
+    $("#lang11").html(content);
+        });;
+}
 }
 }

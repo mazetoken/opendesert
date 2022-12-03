@@ -8,8 +8,6 @@
 <meta name="web" content="">
 <link rel="icon" type="image/ico" sizes="32x32" href="img/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js" integrity="sha256-1TLx50r3wQ52OlAm5jSfpTwbN9MJ51NysfLmsXmUPDk=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
 <script src="web3.min.js"></script>
 <script src="jquery.min.js"></script>
 <style>
@@ -32,14 +30,14 @@ body {background-color: black;}
     </header>
 
       <p class="w3-center w3-black">
-        Open Desert contract (verified) has deterministic address (the same on different blockchains):<br><br>
-        0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53<br><br>
-        Open Desert is currenty deployed on <a href="https://polygonscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Polygon</a>,
-        <a href="https://explorer.dogechain.dog/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Dogechain</a>,
-        <a href="https://sonar.cash/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">smartBCH</a> and
-        <a href="https://mainnet.ethwscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">EthereumPoW</a>.<br><br>
-        <!-- <a href="https://cronoscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">Cronos</a> and<br>
-        <a href="https://bscscan.com/address/0xde9cC5a6051AAd8557ADF6B3a90656E9ABC6AA53">BNB Smart Chain</a>.<br><br> -->
+        Open Desert contract (verified) has deterministic address (the same on different blockchains):<br>
+        0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f<br>
+        Open Desert is currenty deployed on: <a href="https://polygonscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Polygon</a>,
+        <a href="https://explorer.dogechain.dog/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Dogechain</a>,
+        <a href="https://sonar.cash/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">smartBCH</a>,
+        <a href="https://mainnet.ethwscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">EthereumPoW</a> and
+        <a href="https://cronoscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Cronos</a>.<br><br>
+        <!-- <a href="https://bscscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">BNB Smart Chain</a>.<br><br> -->
         Open Desert has 1.5% fee implemented when listing is bought (consider this when setting a price).<br><br>
         You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
         You may need to edit suggested gas limit in the wallet.<br><br>
@@ -68,13 +66,6 @@ body {background-color: black;}
         <p><i>Send NFT to somebody</i></p>
         <div id="lang2"></div>
         <br>
-        <!-- <input id="custom1ERC721" type="text" size="45" placeholder="contract address"><br>
-        <input id="address3" type="text" size="45" placeholder="recipient address"><br>
-        <input id="tokenIds" type="text" size="45" placeholder="token Ids"><br>
-        <button id="sendBatchERC721" class="button button1">Send</button>
-        <p><i>Send many NFTs to somebody</i></p>
-        <div id="lang2"></div>
-        <br> -->
       </div>
     </div>
 
@@ -112,7 +103,7 @@ body {background-color: black;}
         <div id="lang6"></div>
         <br>
         <button id="getSaleCounter" class="button button1">Listing counter</button>
-        <p><i>Each network has its own counter / listing IDs</i></p>
+        <p><i>Each network has its own counter / listing IDs.</i></p>
         <p></p>
         <div id="lang7"></div>
         <br>
@@ -126,17 +117,17 @@ body {background-color: black;}
         <button id="getListingsInfo" class="button button1">Listings info</button>
         <p>Get all listings info to see listings details.<br>Wait a few seconds.</p>
         <div id="lang9"></div>
-        <br>
+        <br><br>
         <input id="listId2" type="text" size="10" placeholder="listing ID"><br>
         <button id="buyNFT" class="button button1">Buy NFT</button>
-        <p><i>The price is in WDOGE when NFT is listed for sale on Dogechain, in BCH when on smartBCH, in MATIC when on Polygon and in ETHW when on EthereumPow.</i></p>
+        <p><i>The price is in MATIC when NFT is listed for sale on Polygon, in WDOGE when on Dogechain, in BCH when on smartBCH, in ETHW when on EthereumPow and in CRO when on Cronos.</i></p>
         <div id="lang10"></div>
-        <!-- <br>
-        <input id="address2" type="text" size="45" placeholder="address"><br>
+        <br>
+        <!-- <input id="address2" type="text" size="45" placeholder="address"><br>
         <button id="transferV" class="button button1">Transfer value from the contract</button>
         <p><i>Contract owner only</i></p>
-        <div id="lang11"></div> -->
-        <br>
+        <div id="lang11"></div>
+        <br> -->
       </div>
     </div>
     
@@ -146,10 +137,10 @@ body {background-color: black;}
   <br>
 
   <footer class="w3-light-grey w3-padding-16 w3-center">
-    <p><a href="https://t.me/mazetokens"><img src="img/telegram.png" alt="Telegram" width="32"></a> <a href="https://github.com/mazetoken/contracts/tree/main/OpenDesert"><img src="img/github.png" alt="Github" width="32"></a></p>
-    <p>Donate:<br>BTC: 37Mf1nZGTb4LeMihP1aDYMKXSUX7Gp1nPG<br>BCH: qq8h3lrxs6cre7vhx3te6pftv8h0v3d5lgt3w66eac<br>
+    <p><a href="https://t.me/mazetokens"><img src="img/telegram.png" alt="Telegram" width="32"></a> <a href="https://github.com/mazetoken/contracts/tree/main/OpenDesertV2"><img src="img/github.png" alt="Github" width="32"></a></p>
+    <!-- <p>Donate:<br>BTC: 37Mf1nZGTb4LeMihP1aDYMKXSUX7Gp1nPG<br>BCH: qq8h3lrxs6cre7vhx3te6pftv8h0v3d5lgt3w66eac<br>
       LTC: MTTSStT1C8X346ehBhNYTBuRa4MvWzR4so<br>DOGE: D8RFC5LR6B7tyzJZxm3oUHLLHEkoqYR14d<br>
-      ETH, BNB, MATIC, WDOGE, CRO: 0xaCD320541f17e57537aa9Fec5dF22966C71fac21</p>
+      ETH, MATIC, WDOGE, ETHW, CRO: 0xaCD320541f17e57537aa9Fec5dF22966C71fac21</p> -->
     <p><a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
   </footer> 
 
