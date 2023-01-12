@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Open Desert - Multichain NFT OTC Market</title>
+<title>Open Desert - digital collectibles multichain OTC Market</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Open Desert - Multichain NFT OTC Market">
+<meta name="description" content="Open Desert - digital collectibles multichain OTC NFT market">
 <meta name="web" content="">
 <link rel="icon" type="image/ico" sizes="32x32" href="img/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,36 +19,47 @@ body {background-color: black;}
 <body>
 
   <!-- !PAGE CONTENT! -->
-  <div class="w3-content" style="max-width: 1024px;">
+  <div class="w3-content" style="max-width: 1200px;">
 
     <!-- Header -->
     <header class="w3-container w3-black w3-large w3-padding-24">
-      <h1 class="w3-center w3-xxxlarge">Open Desert</h1>
-      <p class="w3-center w3-black">Multichain NFT Wallet & OTC Market <i>(alpha)</i><br><br>
-        <img src="img/opendesert1200.png" alt="OpenDesert" style="width:100%">
-      </p>
+      <!-- <h1 class="w3-center w3-xxxlarge">Open Desert</h1>
+      <p class="w3-center w3-black">by Maze Tokens Underworld<br><br><br>
+        <img src="img/opendesert1200.png" alt="OpenDesert" style="width:100%"> -->
+        <h1><img src="img/opendeserticon1.png" alt="OpenDesert" style="width:360px"> Digital collectibles</h1><br>
+        Open Desert contract (verified) has deterministic address (the same on different blockchains): 0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f.<br>
+        The contract is currenty deployed on: <a href="https://polygonscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Polygon</a>,
+        <a href="https://explorer.dogechain.dog/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Dogechain</a>,
+        <a href="https://sonar.cash/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">smartBCH</a>,
+        <a href="https://mainnet.ethwscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">EthereumPoW</a> and
+        <a href="https://cronoscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Cronos</a>.<br><br>
+        Open Desert NFT market has 1.5% fee implemented when listing is bought (consider this when setting a price).<br><br>
+        You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
+        You may need to edit suggested gas limit in the wallet.<br><br>
+        <button id="connect" class="button button1">Connect wallet</button><br><br>
+        Connected to: <span id="wallet-address"></span>
+        <br>
     </header>
 
-      <p class="w3-center w3-black">
-        Open Desert contract (verified) has deterministic address (the same on different blockchains):<br>
+      <!-- <p class="w3-center w3-black">
+        Open Desert is digital collectibles (ERC721) multichain OTC market (alpha).<br><br>The contract (verified) has deterministic address (the same on different blockchains):<br>
         0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f<br>
         Open Desert is currenty deployed on: <a href="https://polygonscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Polygon</a>,
         <a href="https://explorer.dogechain.dog/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Dogechain</a>,
         <a href="https://sonar.cash/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">smartBCH</a>,
         <a href="https://mainnet.ethwscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">EthereumPoW</a> and
         <a href="https://cronoscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">Cronos</a>.<br><br>
-        <!-- <a href="https://bscscan.com/address/0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f">BNB Smart Chain</a>.<br><br> -->
         Open Desert has 1.5% fee implemented when listing is bought (consider this when setting a price).<br><br>
         You need a wallet (e.g. MetaMask) connected to the network of your choice.<br>
         You may need to edit suggested gas limit in the wallet.<br><br>
         <button id="connect" class="button button1">Connect wallet</button><br><br>
         Connected to: <span id="wallet-address"></span>
         <br><br>
-      </p>
+      </p> -->
 
     <hr>
 
-    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT Wallet</h1>
+    <h1 class="w3-center w3-black w3-xxlarge"> <img src="img/opendeserticon2.png" alt="OpenDesert" style="width:240px"> Multichain NFT Wallet</h1>
     <!-- <p class="w3-center w3-black"> View and send NFTs</p> -->
     <br>
     <div class="w3-row">
@@ -66,18 +77,40 @@ body {background-color: black;}
         <p><i>Send NFT to somebody</i></p>
         <div id="lang2"></div>
         <br>
+        <!-- <input id="custom11ERC721" type="text" size="45" placeholder="contract address"><br>
+        <input id="address11" type="text" size="45" placeholder="recipient address"><br>
+        <input id="tokenIds" type="text" size="45" placeholder="token Ids"><br>
+        <input id="tokenIds" type="array[]" value="" size="45" placeholder="token Ids"><br>
+        <button id="sendBatchERC721" class="button button1">Send</button>
+        <p><i>Send multiple NFTs to somebody</i></p>
+        <div id="lang3"></div>
+        <br> -->
+        <input id="custom6ERC721" type="text" size="45" placeholder="contract address"><br>
+        <button id="royaltyCheck" class="button button1">Check royalty standard</button>
+        <p>Check if NFT contract has royalty standard implemented.<br></p>
+        <div id="lang4"></div>
+        <br>
+        <input id="custom7ERC721" type="text" size="45" placeholder="contract address"><br>
+        <!-- <input id="tokenId4" type="text" size="45" placeholder="token Id"><br> -->
+        <input id="salePrice" type="text" size="20" placeholder="NFT sale price"><br>
+        <button id="royaltyInfos" class="button button1">Calculate royalties amount</button>
+        <p><i>The royalty amount<br>is in MATIC when NFT contract is deployed on Polygon, in WDOGE when on Dogechain, in BCH when on smartBCH, in ETHW when on EthereumPow and in CRO when on Cronos.</i><br>
+          <i>Open Desert does not pay royalties.</i>
+        </p>
+        <div id="lang5"></div>
+        <br>
       </div>
     </div>
 
     <hr>
 
-    <h1 class="w3-center w3-black w3-xxxlarge">Multichain NFT OTC Market</h1>
+    <h1 class="w3-center w3-black w3-xxlarge"> <img src="img/opendeserticon3.png" alt="OpenDesert" style="width:240px"> Multichain OTC NFT Market</h1>
     <p class="w3-center w3-black">You can list for sale any NFTs you own.<br>Open Desert is not intended for large collections, but rather for rare collectibles.<br>Do not forget listing ID.<br>Share listing ID with friends or on social media.<br><br>
       <i>Featured NFTs:</i><br>
-      <a href="https://renderai.art">RENDERAI</a> (Dogechain): 0x1749c3ED28189a4695CBaEe75816a962020408A0<br>
       <a href="https://renderai.art">RENDERAI</a> (Polygon): 0x379699089E4408E0DcFf322fe0152f255fADc33C<br>
-      <a href="https://headz.netlify.app">DEADHEADZ</a> (Dogechain): 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5<br>
-      <a href="https://opendesert.art/legends">LEGENDS</a> (Polygon, Dogechain, smartBCH, EthereumPoW): 0x7D96a78c04337914379ffB2094a48d8E809234eC<br>
+      <a href="https://renderai.art">RENDERAI</a> (Dogechain): 0x1749c3ED28189a4695CBaEe75816a962020408A0<br>
+      <a href="deadheadz/index.html">DEADHEADZ</a> (Dogechain): 0x0398C92971E98f49b84Fa5eDe6Bb102Ec113f7E5<br>
+      <a href="legends/index.html">DARK LEGENDS</a> (Polygon, Dogechain, smartBCH, EthereumPoW): 0x7D96a78c04337914379ffB2094a48d8E809234eC<br>
     </p>
     <br>
     <div class="w3-row">
@@ -88,45 +121,51 @@ body {background-color: black;}
         <input id="custom4ERC721" type="text" size="46" placeholder="contract address"><br>
         <button id="approveAll" class="button button1">Approve all</button>
         <p><i>Approve before listing for sale. Wait for confirmation.</i></p>
-        <div id="lang4"></div>
+        <div id="lang6"></div>
         <br>
         <input id="custom5ERC721" type="text" size="45" placeholder="contract address"><br>
         <input id="tokenId3" type="text" size="10" placeholder="token Id"><br>
         <input id="askPrice" type="text" size="20" placeholder="price e.g. 10 or 0.05"><br>
         <button id="listNFT" class="button button1">List NFT for sale</button>
         <p></p>
-        <div id="lang5"></div>
+        <div id="lang7"></div>
         <br>
         <input id="listId" type="text" size="10" placeholder="listing ID"><br>
         <button id="cancelNFT" class="button button1">Cancel listing</button>
         <p></p>
-        <div id="lang6"></div>
+        <div id="lang8"></div>
         <br>
         <button id="getSaleCounter" class="button button1">Listing counter</button>
         <p><i>Each network has its own counter / listing IDs.</i></p>
         <p></p>
-        <div id="lang7"></div>
+        <div id="lang9"></div>
         <br>
         <input id="listId1" type="text" size="10" placeholder="listing ID"><br>
         <button id="getListingInfo" class="button button1">Listing info</button>
         <p>Get listing info to see listing details.<br>Wait a few seconds.<br>
         <i>If nothing is displayed, it means that the listing was bought or canceled.</i>
         </p>
-        <div id="lang8"></div>
+        <div id="lang10"></div>
         <br>
         <button id="getListingsInfo" class="button button1">Listings info</button>
         <p>Get all listings info to see listings details.<br>Wait a few seconds.</p>
-        <div id="lang9"></div>
+        <div id="lang11"></div>
         <br><br>
+        <!-- <input id="useraddress" type="text" size="45" placeholder="your wallet address"><br>
+        <button id="findListing" class="button button1">Find listing ID</button>
+        <p>Find your listing ID</p>
+        <div id="lang11a"></div>
+        <br> -->
         <input id="listId2" type="text" size="10" placeholder="listing ID"><br>
         <button id="buyNFT" class="button button1">Buy NFT</button>
-        <p><i>The price is in MATIC when NFT is listed for sale on Polygon, in WDOGE when on Dogechain, in BCH when on smartBCH, in ETHW when on EthereumPow and in CRO when on Cronos.</i></p>
-        <div id="lang10"></div>
+        <p><i>The price<br>is in MATIC when NFT is listed for sale on Polygon, in WDOGE when on Dogechain, in BCH when on smartBCH, in ETHW when on EthereumPow and in CRO when on Cronos.</i></p>
+        <div id="lang12"></div>
+        <div id="lang13"></div>
         <br>
         <!-- <input id="address2" type="text" size="45" placeholder="address"><br>
         <button id="transferV" class="button button1">Transfer value from the contract</button>
         <p><i>Contract owner only</i></p>
-        <div id="lang11"></div>
+        <div id="lang14"></div>
         <br> -->
       </div>
     </div>
@@ -147,6 +186,7 @@ body {background-color: black;}
   <script src="functions.js"></script>
   <script src="OpenDesertV2abi.js"></script>
   <script src="NFTRoyaltyAbi.js"></script>
+  <script src="bignumber.js"></script>
 
 </body>
 </html>

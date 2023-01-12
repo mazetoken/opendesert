@@ -48,12 +48,68 @@ document.getElementById('sendERC721').onclick = async () => {
     var content = "Sending transaction from: ";
     content += account;
     $("#lang2").html(content);
-    contractERC721.methods.transferFrom(account, address1, tokenId1).send({ from: account })
+    contractERC721.methods.safeTransferFrom(account, address1, tokenId1).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction id: ";
     content += JSON.stringify(receipt.transactionHash);
     $("#lang2").html(content);
+        });;
+}
+
+//document.getElementById('sendBatchERC721').onclick = async () => {
+    //var address11 = $("#address11").val();
+    ///var tokenIds = $("#tokenIds").val() || [];
+    //var tokenIds = $("#tokenIds").val();
+    //var data = '0x0000000000000000000000000000000000000000000000000000000000000000';
+    //var custom11ERC721 = $("#custom11ERC721").val();
+    //var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, custom11ERC721); // Custom NFT
+    //var content = "Sending transaction from: ";
+    //content += account;
+    //$("#lang3").html(content);
+    //contractERC721.methods.safeBatchTransferFrom(account, address11, tokenIds, data).send({ from: account })
+        //.then(function (receipt) {
+            //console.log(receipt);
+    //var content = "Transaction id: ";
+    //content += JSON.stringify(receipt.transactionHash);
+    //$("#lang3").html(content);
+        //});;
+    ///}
+//}
+
+document.getElementById('royaltyCheck').onclick = async () => {
+    var custom6ERC721 = $("#custom6ERC721").val();
+    var interface = '0x2a55205a';
+    var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, custom6ERC721); // Custom NFT
+    var content = "";
+    contractERC721.methods.supportsInterface(interface).call()
+        .then(function (result) {
+            console.log(result);
+        if (result == true) {
+        content += "true";
+        } else if (result !== true) {
+        content += "false";
+        }
+    $("#lang4").html(content);
+        });;
+}
+
+document.getElementById('royaltyInfos').onclick = async () => {
+    var custom7ERC721 = $("#custom7ERC721").val();
+    //var tokenId4 = $("#tokenId4").val();
+    var tokenId4 = '0';
+    var askPrice = $("#salePrice").val();
+    //var askPrice1 = askPrice *1000000000000000000;
+    //var askPrice2 = askPrice1.toString();
+    let askPrice2 = new BigNumber(askPrice *1000000000000000000);
+    askPrice2.toString();
+    var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, custom7ERC721); // Custom NFT
+    var content = "";
+    contractERC721.methods.royaltyInfo(tokenId4, askPrice2).call()
+        .then(function (result) {
+            console.log(result);
+    content += "Royalties receiver: " + result[0] + "<br>" + "Royalties amount: " + result[1] / 1000000000000000000;
+    $("#lang5").html(content);
         });;
 }
 
@@ -63,13 +119,13 @@ document.getElementById('approveR').onclick = async () => {
     var tokenId2 = $("#tokenId2").val();
     var content = "Approving transaction from: ";
     content += account;
-    $("#lang4").html(content);
+    $("#lang6").html(content);
     contractERC721.methods.approve("0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f", tokenId2).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang4").html(content);
+    $("#lang6").html(content);
         });;
 }
 
@@ -78,13 +134,13 @@ document.getElementById('approveAll').onclick = async () => {
     var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, custom4ERC721); // Custom NFT
     var content = "Approving transaction from: ";
     content += account;
-    $("#lang4").html(content);
+    $("#lang6").html(content);
     contractERC721.methods.setApprovalForAll("0xfeEa3eDf8bf3d3Ff29a5946ef617E1BD1B4E6b6f", "approved").send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Approved!: ";
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang4").html(content);
+    $("#lang6").html(content);
         });;
 }
 
@@ -92,24 +148,25 @@ document.getElementById('listNFT').onclick = async () => {
     var custom5ERC721 = $("#custom5ERC721").val();
     var tokenId3 = $("#tokenId3").val();
     var askPrice = $("#askPrice").val();
-    var askPrice1 = askPrice *1000000000000000000;
-    var askPrice2 = askPrice1.toString();
+    //var askPrice1 = askPrice *1000000000000000000;
+    //var askPrice2 = askPrice1.toString();
+    let askPrice2 = new BigNumber(askPrice *1000000000000000000);
+    askPrice2.toString();
     var content = "Sending transaction from: ";
     content += account;
-    $("#lang5").html(content);
+    $("#lang7").html(content);
     contract1.methods.list(custom5ERC721, tokenId3, askPrice2).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction id: ";
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang5").html(content);
+    $("#lang7").html(content);
     contract1.methods.saleCounter().call({ from: account })
         .then(function (result) {
             console.log(result);
     var result1 = result - 1;
     var content = "<br>" + "Listing ID: " + result1 + "<br>" + "Write it down. Do not forget it!";
-    //content += result1 - 1;
-    $("#lang5").html(content);
+    $("#lang7").html(content);
         });;
         });;
 }
@@ -118,13 +175,13 @@ document.getElementById('cancelNFT').onclick = async () => {
     var listId = $("#listId").val();
     var content = "Sending transaction from: ";
     content += account;
-    $("#lang6").html(content);
+    $("#lang8").html(content);
     contract1.methods.cancelListing(listId).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction id: ";
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang6").html(content);
+    $("#lang8").html(content);
         });;
 }
 
@@ -132,9 +189,9 @@ document.getElementById('getSaleCounter').onclick = async () => {
     contract1.methods.saleCounter().call({ from: account })
         .then(function (result) {
             console.log(result);
-    var content = "Total number of listings (including bought or canceled): ";
+    var content = "Total number of listings (including bought or canceled): <br>";
     content += result - 1;
-    $("#lang7").html(content);
+    $("#lang9").html(content);
         });;
 }
 
@@ -159,7 +216,7 @@ document.getElementById('getListingInfo').onclick = async () => {
         .then(function (data) {       
     var content = "";
     content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000;
-    $("#lang8").html(content);       
+    $("#lang10").html(content);       
         });;
         });;
         });;
@@ -188,7 +245,7 @@ document.getElementById('getListingsInfo').onclick = async () => {
         })
         .then(function (data) {
     content += "<hr>" + "listing ID: " + result[0] + "<br>" + "contract: " + result[1] + "<br>" + name + "<br>" + "token Id: " + result[2] + "<br>" + "<img src=" + data.image + " width=384>" + "<br>" + "<br>" + "listing creator: " + result[3] + "<br>" + "price: " + result[4] / 1000000000000000000;
-    $("#lang9").html(content);       
+    $("#lang11").html(content);       
         });;
         });;
         });;
@@ -196,36 +253,98 @@ document.getElementById('getListingsInfo').onclick = async () => {
     };
 }
 
+document.getElementById('findListing').onclick = async () => {
+    var content = "";
+    var useraddress = $("#useraddress").val();
+    contract1.methods.getListing(useraddress).call({ from: account })
+        .then(function (result) {
+            console.log(result);
+    content += "listing IDs:" + result[0];
+    $("#lang11a").html(content);
+        });;    
+}
+
 document.getElementById('buyNFT').onclick = async () => {
     var listId2 = $("#listId2").val();
     var content = "Sending transaction from: ";
     content += account;
-    $("#lang10").html(content);
+    $("#lang12").html(content);
+    //contract1.methods.getListing(listId2).call({ from: account })
+        //.then(function (result) {
+            //console.log(result);
+            //var cost = result[4];
+    //contract1.methods.buyListing(listId2).send({ from: account, value: cost })    
+            //.then(function (receipt) {
+            //console.log(receipt);
+    //var content = "Transaction id: ";
+    //content += JSON.stringify(receipt.transactionHash);
+    //$("#lang12").html(content);
+    //});;
+    //});;
+
     contract1.methods.getListing(listId2).call({ from: account })
         .then(function (result) {
             console.log(result);
+            var nftContract = result[1];
+            var tokenID = result[2];
             var cost = result[4];
-    contract1.methods.buyListing(listId2).send({ from: account, value: cost })    
-            .then(function (receipt) {
-            console.log(receipt);
-    var content = "Transaction id: ";
-    content += JSON.stringify(receipt.transactionHash);
-    $("#lang10").html(content);
-    });;
-    });;
+
+    var contractERC721 = new web3.eth.Contract(NFTRoyaltyAbi, nftContract); // Custom NFT
+    var interface = '0x2a55205a';
+
+    contractERC721.methods.supportsInterface(interface).call()
+        .then(function (result) {
+            console.log(result);
+        if (result == !true) {
+            contract1.methods.buyListing(listId2).send({ from: account, value: cost })    
+                .then(function (receipt) {
+                    console.log(receipt);
+            var content = "Transaction id: ";
+            content += JSON.stringify(receipt.transactionHash);
+            $("#lang12").html(content);
+            });
+        } if (result == true) {
+            contractERC721.methods.royaltyInfo(tokenID, cost).call()
+                .then(function (result) {
+                    console.log(result);
+            var receiver = result[0];
+            var royalties = result[1];
+            //let royalties1 = new BigNumber(royalties);
+            //royalties1.toString();
+            contract1.methods.buyListing(listId2).send({ from: account, value: cost })
+                .then(function (receipt) {
+                    console.log(receipt);
+            var content = "Transaction id: ";
+            content += JSON.stringify(receipt.transactionHash);
+            $("#lang12").html(content);
+            contractERC721.methods.payRoyalties(receiver, royalties).send({ from: account, value: royalties })
+                .then(function (receipt) {
+                    console.log(receipt);
+            var content = "Transaction id: ";
+            content += JSON.stringify(receipt.transactionHash);
+            $("#lang13").html(content);
+            });
+            //};
+            });
+            });
+            };
+            });
+        //});
+    //});
+    });
 }
 
 document.getElementById('transferV').onclick = async () => {
     var address2 = $("#address2").val();
     var content = "Sending transaction from: ";
     content += account;
-    $("#lang11").html(content);
+    $("#lang14").html(content);
     contract1.methods.transferValue(address2).send({ from: account })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction id: ";
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang11").html(content);
+    $("#lang14").html(content);
         });;
 }
 }
